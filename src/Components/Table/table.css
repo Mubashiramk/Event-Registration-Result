@@ -1,0 +1,21 @@
+.table-div {
+  margin-top: 5%;
+  background-color: white;
+  padding: 35px;
+  box-shadow: 5px 5px 20px 5px #b4b2b661;
+  border-radius: 25px;
+}
+th,
+td {
+  padding: 10px 15px 10px 15px;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.133);
+}
+
+button {
+  color: white;
+  background-color: #7028ff;
+  width: 80px;
+  font-size: medium;
+  border-radius: 5px;
+  padding: 5px;
+}

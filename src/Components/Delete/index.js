@@ -5,10 +5,7 @@ export const Delete = ({ item }) => {
   console.log(item);
   const deleteStudent = () => {
     axios
-      .delete(
-        "http://ec2-3-73-79-235.eu-central-1.compute.amazonaws.com/result/delete-student/" +
-          item
-      )
+      .delete("http://localhost:4000/result/delete-student/" + item)
       .then((res) => {
         if (res.status === 200) {
           alert("Student successfully deleted");

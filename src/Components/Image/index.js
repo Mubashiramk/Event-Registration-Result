@@ -1,6 +1,7 @@
 import "./image.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Draw } from "../Draw";
 
 export const Image = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -9,7 +10,7 @@ export const Image = () => {
 
   const sendRequest = async () => {
     const res = await axios
-      .get("http://ec2-3-73-79-235.eu-central-1.compute.amazonaws.com/s3url")
+      .get("http://localhost:4000/s3url")
       .catch((err) => console.log(err));
     const data = await res.data;
     console.log(data.url);
@@ -70,10 +71,7 @@ export const Image = () => {
         </div>
       </div>
 
-      <div className="image-display">
-        <img src={image} alt="preview image" />
-        {/* <canvas /> */}
-      </div>
+      <div className="image-display">{image && <Draw data={image} />}</div>
     </div>
   );
 };

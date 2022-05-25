@@ -7,7 +7,7 @@ import { Image } from "../Image";
 export const UserData = () => {
   const sendRequest = async () => {
     const res = await axios
-      .get("http://localhost:4000/result")
+      .get("http://ec2-3-73-79-235.eu-central-1.compute.amazonaws.com/result")
       .catch((err) => console.log(err));
     const data = await res.data;
     console.log(data, "data");

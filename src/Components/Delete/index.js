@@ -6,7 +6,7 @@ export const Delete = ({ item }) => {
   const deleteStudent = () => {
     axios
       .delete(
-        "hhttp://ec2-3-73-79-235.eu-central-1.compute.amazonaws.com/result/delete-student/" +
+        "http://ec2-3-73-79-235.eu-central-1.compute.amazonaws.com/result/delete-student/" +
           item
       )
       .then((res) => {

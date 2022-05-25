@@ -2,14 +2,14 @@ import "./table.css";
 import { Delete } from "../Delete";
 
 export const Table = ({ data }) => {
-  // console.log(data, "mubu");
+  console.log(data, "Data in Table folder");
   function custom_sort(a, b) {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
   }
-  if (data === null) {
+  if (data === undefined) {
     return <div>Data is loading</div>;
   } else {
-    data.sort(custom_sort);
+    data.users.sort(custom_sort);
 
     return (
       <div className="table-div">
@@ -24,7 +24,7 @@ export const Table = ({ data }) => {
           </thead>
           <tbody>
             {data &&
-              data.map((post, index) => (
+              data.users.map((post, index) => (
                 <tr key={index}>
                   <td>{post.firstName}</td>
                   <td>{post.lastName}</td>

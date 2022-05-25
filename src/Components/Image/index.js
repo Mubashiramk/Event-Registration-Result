@@ -10,7 +10,7 @@ export const Image = () => {
 
   const sendRequest = async () => {
     const res = await axios
-      .get("http://ec2-3-73-79-235.eu-central-1.compute.amazonaws.com/s3url")
+      .get("http://localhost:4000/s3url")
       .catch((err) => console.log(err));
     const data = await res.data;
     console.log(data.url);

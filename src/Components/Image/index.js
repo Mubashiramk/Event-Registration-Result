@@ -13,7 +13,7 @@ export const Image = () => {
       .get("http://localhost:4000/s3url")
       .catch((err) => console.log(err));
     const data = await res.data;
-    console.log(data.url);
+    // console.log(data.url);
     setData(data.url);
     return data;
   };
@@ -32,10 +32,10 @@ export const Image = () => {
 
   const FileUploadHandler = async () => {
     const file = selectedFile;
-    console.log(file);
+    // console.log(file);
 
     if (data !== "") {
-      console.log(data, "jiji");
+      // console.log(data, "jiji");
       const upload = async () => {
         const res = await axios.put(data, {
           method: "PUT",
@@ -48,7 +48,7 @@ export const Image = () => {
       };
       upload();
       const imageUrl = data.split("?")[0];
-      console.log(imageUrl);
+      // console.log(imageUrl);
     }
   };
 

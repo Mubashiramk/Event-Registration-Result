@@ -1,15 +1,15 @@
 import "./userData.css";
 import { useEffect, useState } from "react";
-import { useQuery } from "react-query";
 import axios from "axios";
 import { Table } from "../Table";
 import { Image } from "../Image";
-//
 import { io } from "socket.io-client";
 
 export const UserData = () => {
-  const socket = io("http://localhost:4000");
+  const socket = io("http://localhost:5000");
   const [users, setUsers] = useState();
+  const [loading, setLoading] = useState(false);
+  const [soc, setSoc] = useState(false);
 
   const sendRequest = async () => {
     const res = await axios
@@ -21,50 +21,23 @@ export const UserData = () => {
     return data;
   };
 
-  // useEffect(() => {
-  //   sendRequest()
-  //     .then((data) => setUsers(data))
-  //     .catch((err) => {
-  //       console.log(err);
-  //     })
-  //     .finally(() => {});
-  // }, []);
-
-  // useEffect(() => {
-  //   const { isLoading, users } = useQuery("result", async () => {
-  //     return await axios.get("http://localhost:4000/result");
-  //   });
-  // }, []);
-  // setInterval(function () {
-  //   useEffect(() => {
-  //     sendRequest()
-  //       .then((data) => setUsers(data))
-  //       .catch((err) => {
-  //         console.log(err);
-  //       })
-  //       .finally(() => {});
-  //   }, []);
-  // }, 2000);
-
-  //
-
   useEffect(() => {
     sendRequest()
-      .then((data) => setUsers(data))
+      .then((data) => setUsers(data.users))
       .catch((err) => {
         console.log(err);
       })
       .finally(() => {});
-    socket.on("hello", (data) => {
+    socket.on("hello", (world) => {
       sendRequest()
-        .then((data) => setUsers(data))
+        .then((data) => setUsers(data.users))
         .catch((err) => {
           console.log(err);
         })
         .finally(() => {});
-      console.log(users, "success");
+      console.log(world);
     });
-  }, [socket]);
+  }, [socket.on]);
 
   return (
     <div>

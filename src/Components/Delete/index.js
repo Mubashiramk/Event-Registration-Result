@@ -2,7 +2,7 @@ import "./delete.css";
 import axios from "axios";
 
 export const Delete = ({ item }) => {
-  console.log(item);
+  // console.log(item);
   const deleteStudent = () => {
     axios
       .delete("http://localhost:4000/result/delete-student/" + item)
